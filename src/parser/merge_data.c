@@ -6,7 +6,7 @@
 /*   By: yhajbi <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 13:37:38 by yhajbi            #+#    #+#             */
-/*   Updated: 2025/12/03 19:30:58 by yhajbi           ###   ########.fr       */
+/*   Updated: 2025/12/03 21:53:54 by yhajbi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,17 @@ void	merge_data(t_parse_data p_data, t_game *g)
 	g->player.y = (double)p_data.p_y + 0.5;
 
 	// 2. Player Direction (Math Required!)
-	// Your parser has 'angle' (radians). His raycaster needs vectors.
 	g->player.dir_x = -cos(p_data.angle);
 	g->player.dir_y = -sin(p_data.angle);
 
 	// 3. Camera Plane (FOV)
-	// Perpendicular to direction. 0.66 is standard for ~66 fov
 	g->player.plane_x = -g->player.dir_y * 0.66;
 	g->player.plane_y = g->player.dir_x * 0.66;
 
 	// 4. Map
 	g->map_w = p_data.width;
 	g->map_h = p_data.height;
-	g->map = p_data.matrix; // Direct pointer assignment (Shallow copy)
+	g->map = p_data.matrix;
 
 	// 5. Colors
 	g->ceiling = p_data.assets->c_color;
@@ -71,7 +69,6 @@ void	merge_data(t_parse_data p_data, t_game *g)
 	
 	// 7. Bonus Assets
 	g->door_path = p_data.assets->door;
-	// Use the 'hell_yeah' texture for the hand/weapon
 	g->hand_path = p_data.assets->hell_yeah; 
-	g->hand_phase = 0; // Reset animation
+	g->hand_phase = 0;
 }

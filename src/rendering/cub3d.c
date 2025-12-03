@@ -16,7 +16,7 @@ void destroy_game(t_game *g, const char *msg)
 		mlx_destroy_display(g->mlx);
 		free(g->mlx);
 	}
-	/* free_map(g->map); */
+	/* free_map(g->map); */										// commented because yhajbi uses a garbage collector
 	exit(0);
 }
 bool	is_wall(t_game *gm, int x, int y)
@@ -129,7 +129,7 @@ void	put_pixel(t_game *gm, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-/* static int	set_player_spawn(t_game *gm) */
+/* static int	set_player_spawn(t_game *gm) */			// yhajbi commented this because its not used
 /* { */
 /* 	int     y; */
 /* 	int     x; */
@@ -311,7 +311,7 @@ void	draw_hands(t_game *gm)
     }
 }
 
-/* int	init_game(t_game *gm, char *filename) */
+/* int	init_game(t_game *gm, char *filename) */			// yhajbi commented this because its not used
 /* { */
 /* 	memset(gm, 0, sizeof(*gm)); */
 /* 	gm->mlx = mlx_init(); */
@@ -370,7 +370,7 @@ void	draw_hands(t_game *gm)
 int close_win(t_game *g)
 {
 	destroy_game(g, NULL);
-	gc_free_all();				// garbage collector freeing function
+	gc_free_all();				// yhajbi's code, garbage collector freeing function
 	return (0);
 }
 
@@ -384,7 +384,7 @@ int	main_function(t_game *gm)
 	return (0);
 }
 
-/* int main(int ac, char **av) */
+/* int main(int ac, char **av) */			// yhajbi commented this because its not used
 /* { */
 /* 	t_game	gm; */
 /**/

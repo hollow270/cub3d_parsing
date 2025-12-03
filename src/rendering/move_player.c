@@ -52,8 +52,8 @@ void	move_player(t_game *gm)
 	}
 	if (gm->keys.right)
 	{
-		nx = p->x - p->dir_y * MOVE_SPEED;		// old code: nx = p->x + p->dir_y * MOVE_SPEED;
-		ny = p->y + p->dir_x * MOVE_SPEED;		// old code: ny = p->y - p->dir_x * MOVE_SPEED;
+		nx = p->x - p->dir_y * MOVE_SPEED;		// yhajbi's code, old code: nx = p->x + p->dir_y * MOVE_SPEED;
+		ny = p->y + p->dir_x * MOVE_SPEED;		// yhajbi's code, old code: ny = p->y - p->dir_x * MOVE_SPEED;
 		if (!collides_at(gm, nx, p->y))
 			p->x = nx;
 		if (!collides_at(gm, p->x, ny))
@@ -62,8 +62,8 @@ void	move_player(t_game *gm)
 	}
 	if (gm->keys.left)
 	{
-		nx = p->x + p->dir_y * MOVE_SPEED;		// old code: nx = p->x - p->dir_y * MOVE_SPEED;
-		ny = p->y - p->dir_x * MOVE_SPEED;		// old code: ny = p->y + p->dir_x * MOVE_SPEED;
+		nx = p->x + p->dir_y * MOVE_SPEED;		// yhajbi's code, old code: nx = p->x - p->dir_y * MOVE_SPEED;
+		ny = p->y - p->dir_x * MOVE_SPEED;		// yhajbi's code, old code: ny = p->y + p->dir_x * MOVE_SPEED;
 		if (!collides_at(gm, nx, p->y))
 			p->x = nx;
 		if (!collides_at(gm, p->x, ny))
